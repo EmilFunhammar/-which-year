@@ -18,6 +18,7 @@
 		CF5DEE5A23CE5A5E002FF84F /* gameProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5DEE5923CE5A5E002FF84F /* gameProjectTests.swift */; };
 		CF5DEE6523CE5A5E002FF84F /* gameProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5DEE6423CE5A5E002FF84F /* gameProjectUITests.swift */; };
 		CFC0A2D223CF1C0200E5EA23 /* numberOfTeamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A2D123CF1C0200E5EA23 /* numberOfTeamsViewController.swift */; };
+		CFCC289A23E08AF600B7A2F4 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCC289923E08AF600B7A2F4 /* Questions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CF5DEE6423CE5A5E002FF84F /* gameProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameProjectUITests.swift; sourceTree = "<group>"; };
 		CF5DEE6623CE5A5F002FF84F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFC0A2D123CF1C0200E5EA23 /* numberOfTeamsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numberOfTeamsViewController.swift; sourceTree = "<group>"; };
+		CFCC289923E08AF600B7A2F4 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				CF5DEE4B23CE5A5E002FF84F /* Assets.xcassets */,
 				CF5DEE4D23CE5A5E002FF84F /* LaunchScreen.storyboard */,
 				CF5DEE5023CE5A5E002FF84F /* Info.plist */,
+				CFCC289923E08AF600B7A2F4 /* Questions.swift */,
 			);
 			path = gameProject;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				CF5DEE4723CE5A5A002FF84F /* ViewController.swift in Sources */,
 				CFC0A2D223CF1C0200E5EA23 /* numberOfTeamsViewController.swift in Sources */,
 				CF58510C23D0901D004917B6 /* gameFieldViewController.swift in Sources */,
+				CFCC289A23E08AF600B7A2F4 /* Questions.swift in Sources */,
 				CF58511023D097CC004917B6 /* Question.swift in Sources */,
 				CF5DEE4323CE5A5A002FF84F /* AppDelegate.swift in Sources */,
 				CF5DEE4523CE5A5A002FF84F /* SceneDelegate.swift in Sources */,

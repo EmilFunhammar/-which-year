@@ -16,8 +16,5 @@ class Question{
     init (question: String, answer: String){
         self.quest = question
         self.answer = answer
-        print(question)
-        print(answer)
-        
     }
 }
