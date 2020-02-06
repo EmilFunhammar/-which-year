@@ -13,8 +13,9 @@ class Question{
     var quest : String
     var answer : String
     
-    init (question: String, answer: String){
-        self.quest = question
+    init (quest: String, answer: String){
+        self.quest = quest
         self.answer = answer
     }
+    
 }

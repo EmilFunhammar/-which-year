@@ -8,125 +8,99 @@
 
 import UIKit
 
-class gameFieldViewController: UIViewController {
+class gameFieldViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet weak var cardLabel: UILabel!
+    @IBOutlet weak var answerButton: UIButton!
+    @IBOutlet weak var questionCardLabel: UILabel!
+    @IBOutlet weak var catagoriLabel: UILabel!
+    @IBOutlet weak var teamLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var stackView: UIStackView!
-//    @IBOutlet weak var cardLabel1: UILabel!
-//    @IBOutlet weak var cardLabel2: UILabel!
-//    @IBOutlet weak var cardLabel3: UILabel!
-//    @IBOutlet weak var cardLabel4: UILabel!
-//    @IBOutlet weak var cardLabel5: UILabel!
-//    @IBOutlet weak var cardLabel6: UILabel!
-//    @IBOutlet weak var cardLabel7: UILabel!
-//    @IBOutlet weak var cardLabel8: UILabel!
-    
-    
-    private var questions = [Question]()
+    var question : [Questions] = []
+    var asktQuestions : [Questions] = []
+    var currentQuestion = 0
+    var i = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createQuestions()
-        questions.shuffle()
-        dump(questions)
         
-       
+       createQuestions()
+       // quest.shuffle()
+        newQuestion()
+        newQuestion()
         
-       
-        let firstPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
         
-        let secondPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
         
-        let thirdPalaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
         
-        let fourthPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
+        tableView.setEditing(true, animated: true)
         
-        let fiftPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
+    }
+    
+    
+    func newQuestion() {
+        asktQuestions.insert(question[currentQuestion], at: 0)
+        currentQuestion += 1
+        questionCardLabel.text = asktQuestions[0].quest
         
-        let sixtPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
-        
-        let seventhPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
-        
-        let eightPlaceTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.tapReconizer))
-        
-        let firstPlace = UILabel.init()
-            firstPlace.text = questions[0].answer
-            firstPlace.backgroundColor = .gray
-            firstPlace.isUserInteractionEnabled = true
-            firstPlace.addGestureRecognizer(firstPlaceTapGesture)
-        
-        let secondPlace = UILabel.init()
-            secondPlace.text = "2"
-            secondPlace.isUserInteractionEnabled = true
-            secondPlace.addGestureRecognizer(secondPlaceTapGesture)
-        
-        let thirdPlace = UILabel.init()
-            thirdPlace.text = "3"
-            thirdPlace.isUserInteractionEnabled = true
-            thirdPlace.addGestureRecognizer(thirdPalaceTapGesture)
-        
-        let fourthPlace = UILabel.init()
-            fourthPlace.text = "4"
-            fourthPlace.isUserInteractionEnabled = true
-            fourthPlace.addGestureRecognizer(fourthPlaceTapGesture)
-        
-        let fiftPlace = UILabel.init()
-            fiftPlace.text = "5"
-            fiftPlace.isUserInteractionEnabled = true
-            fiftPlace.addGestureRecognizer(fiftPlaceTapGesture)
-        
-        let sixtPlace = UILabel.init()
-            sixtPlace.text = "6"
-            sixtPlace.isUserInteractionEnabled = true
-            sixtPlace.addGestureRecognizer(sixtPlaceTapGesture)
-        
-        let seventhPlace = UILabel.init()
-            seventhPlace.text = "7"
-            seventhPlace.isUserInteractionEnabled = true
-            seventhPlace.addGestureRecognizer(seventhPlaceTapGesture)
-        
-        let eightPlace = UILabel.init()
-            eightPlace.text = "Vilket år"
-            eightPlace.backgroundColor = .blue
-            eightPlace.isUserInteractionEnabled = true
-            eightPlace.addGestureRecognizer(eightPlaceTapGesture)
-
-        
-        let stackView = UIStackView.init()
-        
-        self.stackView.addSubview(stackView)
-        self.stackView.addArrangedSubview(firstPlace)
-        self.stackView.addArrangedSubview(secondPlace)
-        self.stackView.addArrangedSubview(thirdPlace)
-        self.stackView.addArrangedSubview(fourthPlace)
-        //self.stackView.addArrangedSubview(fiftPlace)
-        //self.stackView.addArrangedSubview(sixtPlace)
-        //self.stackView.addArrangedSubview(seventhPlace)
-        //self.stackView.addArrangedSubview(eightPlace)
-        
-        stackView.axis = .horizontal
-       
-        stackView.distribution = .fill//.fillEqually.fillProportionally.equalSpacing
-        
-//        stackView.addArrangedSubview(firstPlace)
-            cardLabel.text = questions[1].quest
-//            cardLabel1.text = questions[0].answer
-//            cardLabel2.text = questions[1].answer
-//            cardLabel3.text = questions[2].quest
-//            cardLabel4.text = questions[3].answer
-//            cardLabel5.text = questions[4].answer
-//            cardLabel6.text = questions[5].answer
-//            cardLabel7.text = questions[6].answer
-//            cardLabel8.text = questions[7].answer
-//
-       // startCard.text = questions[1].answer
 
     }
-        // func c (Questions: [])
     
-//    func createQuestions(){
-//
+    @IBAction func checkAnswer(_ sender: UIButton) {
+        var qcheck = false
+        var count = 0
+        for i in 0...asktQuestions.count{
+            if (i+1) < asktQuestions.count && asktQuestions[i].answer < asktQuestions[i+1].answer {
+                count += 1
+                print("\(asktQuestions[i].answer) is correct")
+                if count == (asktQuestions.count - 1){
+                    qcheck = true
+                    print("Print new question")
+                    break
+                }
+            }
+            else{
+                print("\(asktQuestions[i].answer) är fel")
+                break
+            }
+        }
+        
+        if qcheck == true{
+            newQuestion()
+            tableView.reloadData()
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return asktQuestions.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath)
+        
+        cell.textLabel?.text = asktQuestions[indexPath.row].answer
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return UITableViewCell.EditingStyle.none
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let q = asktQuestions.remove(at: sourceIndexPath.row)
+        
+        asktQuestions.insert(q, at: destinationIndexPath.row)
+        tableView.reloadData()
+    }
+    
+    func createQuestions(){
+        
+        
+
 //        let q1 = Question(question: " fråga 1" , answer: "111" )
 //        let q2 = Question(question: " fråga 2" , answer: "222" )
 //        let q3 = Question(question: " fråga 3" , answer: "333" )
@@ -135,38 +109,21 @@ class gameFieldViewController: UIViewController {
 //        let q6 = Question(question: " fråga 6" , answer: "666" )
 //        let q7 = Question(question: " fråga 7" , answer: "777" )
 //        let q8 = Question(question: " fråga 8" , answer: "888" )
-//        questions.append(q1)
-//        questions.append(q2)
-//        questions.append(q3)
-//        questions.append(q4)
-//        questions.append(q5)
-//        questions.append(q6)
-//        questions.append(q7)
-//        questions.append(q8)
-//    }
-    
-    
-    @IBAction func tapReconizer(_ sender: UITapGestureRecognizer){
-        
-        let index = stackView.arrangedSubviews.firstIndex(of: sender.view!)
 //
-        let answerIndex = stackView.arrangedSubviews.count-1
-        let view = stackView.arrangedSubviews[answerIndex]
-        
-        stackView.removeArrangedSubview(view)
-        
-        
-       stackView.insertArrangedSubview(view, at: index!)
-        
-        print("Tappt")
-        
+//        quest.append(q1)
+//        quest.append(q2)
+//        quest.append(q3)
+//        quest.append(q4)
+//        quest.append(q5)
+//        quest.append(q6)
+//        quest.append(q7)
+//        quest.append(q8)
     }
     
+   
     
     
-    @IBAction func checkAnswer(_ sender: UIButton) {
-        
-    }
     
     
 }
+
