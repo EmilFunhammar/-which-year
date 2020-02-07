@@ -12,10 +12,14 @@ class Question{
     
     var quest : String
     var answer : String
+    var active : Bool
+    var previously : Bool
     
     init (quest: String, answer: String){
         self.quest = quest
         self.answer = answer
+        active = false
+        previously = false
     }
     
 }

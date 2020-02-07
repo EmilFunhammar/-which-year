@@ -8,12 +8,19 @@
 
 import Foundation
 
-class Questions: Question {
+class Questions {
     
-    var question : [Question] = []
+    var questions : [Question] = []
+    var asktQuestions : [Question] = []
+    var currentQuestion = 0
+
+    
+    init() {
+        self.createQuestions()
+    }
+
     
     func createQuestions(){
-
 
         let q1 = Question(quest: "när skedde attacken mot Pearl Harbor", answer: "1941")
         let q2 = Question(quest: "11 september-attackerna", answer: "2001")
@@ -27,37 +34,61 @@ class Questions: Question {
         let q10 = Question(quest: "Atombomben över Hiroshima", answer: "1945")
         let q11 = Question(quest: "Oktoberrevolutionen", answer: "1917")
         
-        question.append(q1)
-        question.append(q2)
-        question.append(q3)
-        question.append(q4)
-        question.append(q5)
-        question.append(q6)
-        question.append(q7)
-        question.append(q8)
-        question.append(q9)
-        question.append(q10)
-        question.append(q11)
+        questions.append(q1)
+        questions.append(q2)
+        questions.append(q3)
+        questions.append(q4)
+        questions.append(q5)
+        questions.append(q6)
+        questions.append(q7)
+        questions.append(q8)
+        questions.append(q9)
+        questions.append(q10)
+        questions.append(q11)
         
-        
-        print(q1.answer)
-        print(q1.quest)
-        
-        
-//        let q2 = Question(question: " fråga 2" , answer: "222" )
-//        let q3 = Question(question: " fråga 3" , answer: "333" )
-//        let q4 = Question(question: " fråga 4" , answer: "444" )
-//        let q5 = Question(question: " fråga 5" , answer: "555" )
-//        let q6 = Question(question: " fråga 6" , answer: "666" )
-//        let q7 = Question(question: " fråga 7" , answer: "777" )
-//        let q8 = Question(question: " fråga 8" , answer: "888" )
-  //      quest.append(q1)
-//        questions.append(q2)
-//        questions.append(q3)
-//        questions.append(q4)
-//        questions.append(q5)
-//        questions.append(q6)
-//        questions.append(q7)
-//        questions.append(q8)
+        questions.shuffle()
     }
+    
+    func previouslyQuestion(){
+       // print(currentQuestion)
+        var previousQuestion = currentQuestion
+    }
+    
+    func nextQuestion() -> Question {
+        previouslyQuestion()
+        if currentQuestion >= questions.count {
+            currentQuestion = 0
+            print("out of questions" )
+            
+        }
+        
+        let question = questions[currentQuestion]
+        currentQuestion += 1
+        question.active = true
+        //question.previously = true
+        
+        for question in asktQuestions {
+            question.active = false
+        }
+    
+        asktQuestions.insert(question, at: 0)
+        
+        return question
+        
+    }
+    
+    func checkAnswer() -> Bool {
+        for i in 0...asktQuestions.count - 2{
+            guard let answer = Int(asktQuestions[i].answer) else {return false}
+            guard let nextAnswer = Int(asktQuestions[i+1].answer) else {return false}
+
+            if answer < nextAnswer {
+                print("False")
+                return false
+            }
+        }
+        print("True")
+        return true
+    }
+    
 }

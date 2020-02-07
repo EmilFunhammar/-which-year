@@ -12,24 +12,31 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var questionCardLabel: UILabel!
-    @IBOutlet weak var catagoriLabel: UILabel!
+    @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var question : [Questions] = []
-    var asktQuestions : [Questions] = []
-    var currentQuestion = 0
+    
+    var questions = Questions()
+   // var question : [Questions] = []
+   // var asktQuestions : [Question] = []
+  //  var currentQuestion = Questions()
     var i = 0
+    var x = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       createQuestions()
+        teamLabel.text = "current team"
+        pointLabel.text = "Cards left to win \(x)"
+        
+        
+        
+       //createQuestions()
        // quest.shuffle()
         newQuestion()
         newQuestion()
-        
-        
+    //print(currentQuestion.nextQuestion().answer)
         
         
         tableView.setEditing(true, animated: true)
@@ -37,42 +44,55 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
+    
+    
     func newQuestion() {
-        asktQuestions.insert(question[currentQuestion], at: 0)
-        currentQuestion += 1
-        questionCardLabel.text = asktQuestions[0].quest
+       // asktQuestions.insert(questions.nextQuestion(), at: 0)
+        questionCardLabel.text = questions.nextQuestion().quest
         
 
     }
     
-    @IBAction func checkAnswer(_ sender: UIButton) {
-        var qcheck = false
-        var count = 0
-        for i in 0...asktQuestions.count{
-            if (i+1) < asktQuestions.count && asktQuestions[i].answer < asktQuestions[i+1].answer {
-                count += 1
-                print("\(asktQuestions[i].answer) is correct")
-                if count == (asktQuestions.count - 1){
-                    qcheck = true
-                    print("Print new question")
-                    break
-                }
-            }
-            else{
-                print("\(asktQuestions[i].answer) är fel")
-                break
+    
+    
+    
+    @IBAction func checkAnswer(_ sender: UIButton){
+        if questions.asktQuestions.count < 8 {
+
+            if questions.checkAnswer() {
+                newQuestion()
+                x -= 1
+                pointLabel.text = "Cards left to win \(x)"
+                tableView.reloadData()
             }
         }
         
-        if qcheck == true{
-            newQuestion()
-            tableView.reloadData()
+        else{
+             x -= 1
+            pointLabel.text = "Cards left to win \(x)"
+            showAlertAction(title: "Grattis", message: "Grattttttis")
         }
+        
+        
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Place the newest year at top :)"
     }
     
+    func showAlertAction(title: String, message: String){
+        let alert = UIAlertController(title: "Awsome!", message: "YOU HAVE ALL CARDS AND THERE FOR WON THE GAME", preferredStyle: UIAlertController.Style.alert)
+
+
+
+
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true
+        )
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return asktQuestions.count
+        return questions.asktQuestions.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -81,8 +101,23 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "idCell", for: indexPath)
         
-        cell.textLabel?.text = asktQuestions[indexPath.row].answer
+        let question = questions.asktQuestions[indexPath.row]
         
+        
+        cell.backgroundColor = UIColor.gray
+        if question.active == true {
+             cell.textLabel?.text = "Vilket År?"
+                cell.backgroundColor = UIColor.blue
+            
+        } else {
+            cell.textLabel?.text = questions.asktQuestions[indexPath.row].answer
+            
+        }
+        
+//        if question.previously == true{
+//            cell.backgroundColor = UIColor.green
+//        }
+            
         return cell
     }
     
@@ -91,14 +126,45 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let q = asktQuestions.remove(at: sourceIndexPath.row)
+        let q = questions.asktQuestions.remove(at: sourceIndexPath.row)
         
-        asktQuestions.insert(q, at: destinationIndexPath.row)
+        questions.asktQuestions.insert(q, at: destinationIndexPath.row)
         tableView.reloadData()
     }
     
-    func createQuestions(){
-        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return asktQuestions.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//           let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+//
+//        cell.textLabel?.text = asktQuestions[indexPath.row].answer
+//
+//                return cell
+//    }
+//
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = self.tableView.cellForRowAtIndexPath(indexPath)
+//
+//        cell!.alpha = 0.5
+//    }
+    
+    
+    
+    
+    //func createQuestions(){
+  //      Questions.createQuestions(Questions)
         
 
 //        let q1 = Question(question: " fråga 1" , answer: "111" )
@@ -118,7 +184,7 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
 //        quest.append(q6)
 //        quest.append(q7)
 //        quest.append(q8)
-    }
+ //   }
     
    
     
