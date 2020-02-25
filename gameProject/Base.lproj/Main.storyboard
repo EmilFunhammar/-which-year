@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="gameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gme-RP-NVA">
+                                <rect key="frame" x="49" y="125" width="798" height="258"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQM-mt-NjL">
+                                        <rect key="frame" x="0.0" y="0.0" width="798" height="125"/>
+                                        <color key="backgroundColor" red="0.92345064880000005" green="0.280413568" blue="0.2260409296" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Välj antal lag">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ld9-JI-A6p" kind="show" id="p3Z-eO-xOX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="efq-jK-8bk">
+                                        <rect key="frame" x="0.0" y="133" width="798" height="125"/>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="7" right="8"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <state key="normal">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gameField:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AV1-Qq-mRs"/>
+                                            <segue destination="bU3-lM-5jt" kind="show" id="hJs-2h-ZVf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vilket Årtal?!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qn9-yj-HcV">
+                                <rect key="frame" x="49" y="10" width="798" height="105"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gme-RP-NVA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="CqN-OH-r1w"/>
+                            <constraint firstItem="qn9-yj-HcV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="QCt-qi-TYd"/>
+                            <constraint firstItem="qn9-yj-HcV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="XxS-gp-iPx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qn9-yj-HcV" secondAttribute="trailing" constant="5" id="aBw-Hf-zkq"/>
+                            <constraint firstItem="gme-RP-NVA" firstAttribute="top" secondItem="qn9-yj-HcV" secondAttribute="bottom" constant="10" id="h5s-sg-wOe"/>
+                            <constraint firstItem="gme-RP-NVA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="125" id="oHW-Fn-wEJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gme-RP-NVA" secondAttribute="bottom" constant="10" id="qvC-4L-6wS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gme-RP-NVA" secondAttribute="trailing" constant="5" id="rKG-rl-cPl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7ap-eD-3bB"/>
+                    <connections>
+                        <outlet property="playButton" destination="efq-jK-8bk" id="zHk-iv-Q9P"/>
+                        <outlet property="teamButton" destination="ZQM-mt-NjL" id="x8D-Nt-ufu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-57.589285714285708" y="108.69565217391305"/>
+        </scene>
+        <!--Number Of Teams View Controller-->
+        <scene sceneID="5dg-IM-GgV">
+            <objects>
+                <viewController id="ld9-JI-A6p" customClass="numberOfTeamsViewController" customModule="gameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3p9-1i-qUa">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="40z-LA-32S">
+                                <rect key="frame" x="49" y="120" width="798" height="263"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1e-vu-aF0">
+                                        <rect key="frame" x="0.0" y="0.0" width="798" height="61.5"/>
+                                        <color key="backgroundColor" red="0.40255044999851708" green="0.1872498495029124" blue="0.50694219559585485" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="1 Team">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teamButton1:" destination="ld9-JI-A6p" eventType="touchUpInside" id="3mv-Y2-RrI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBz-Hz-Aai">
+                                        <rect key="frame" x="0.0" y="67.5" width="798" height="61"/>
+                                        <color key="backgroundColor" red="0.29303136365038274" green="0.70675678291670319" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <state key="normal" title="2 Team">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teamButton2:" destination="ld9-JI-A6p" eventType="touchUpInside" id="1ZK-YB-izj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nn8-qI-f6U">
+                                        <rect key="frame" x="0.0" y="134.5" width="798" height="61.5"/>
+                                        <color key="backgroundColor" red="0.17055791968419398" green="0.6140830571590673" blue="0.20036843479357699" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
+                                        <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <state key="normal" title="3 Team">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teamButton3:" destination="ld9-JI-A6p" eventType="touchUpInside" id="mts-bE-oL8"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUG-UA-HuD">
+                                        <rect key="frame" x="0.0" y="202" width="798" height="61"/>
+                                        <color key="backgroundColor" red="1" green="0.64671676190943139" blue="0.92356774947901044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="34"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="4 Team">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="teamBUtton4:" destination="ld9-JI-A6p" eventType="touchUpInside" id="hTS-Ke-bI0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jSb-9F-CiE">
+                                <rect key="frame" x="49" y="20" width="117" height="40"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <state key="normal" title="Tillbaka">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="NjM-p1-Eb6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Välj antal Lag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lp0-hh-bck">
+                                <rect key="frame" x="49" y="20" width="798" height="74"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Lp0-hh-bck" firstAttribute="centerX" secondItem="3p9-1i-qUa" secondAttribute="centerX" id="Cr6-96-eZy"/>
+                            <constraint firstItem="pSg-mE-GnJ" firstAttribute="trailing" secondItem="40z-LA-32S" secondAttribute="trailing" constant="5" id="FAR-nW-5SC"/>
+                            <constraint firstItem="jSb-9F-CiE" firstAttribute="leading" secondItem="pSg-mE-GnJ" secondAttribute="leading" constant="5" id="I0K-df-kKh"/>
+                            <constraint firstItem="40z-LA-32S" firstAttribute="leading" secondItem="pSg-mE-GnJ" secondAttribute="leading" constant="5" id="MHn-IN-Hbt"/>
+                            <constraint firstItem="jSb-9F-CiE" firstAttribute="top" secondItem="pSg-mE-GnJ" secondAttribute="top" constant="20" id="P4D-9H-Rkn"/>
+                            <constraint firstItem="Lp0-hh-bck" firstAttribute="top" secondItem="pSg-mE-GnJ" secondAttribute="top" constant="20" id="aHt-KW-o4x"/>
+                            <constraint firstItem="40z-LA-32S" firstAttribute="top" secondItem="jSb-9F-CiE" secondAttribute="bottom" constant="60" id="fMw-fx-VjU"/>
+                            <constraint firstItem="40z-LA-32S" firstAttribute="top" secondItem="Lp0-hh-bck" secondAttribute="bottom" constant="26" id="lAC-z3-f1I"/>
+                            <constraint firstItem="pSg-mE-GnJ" firstAttribute="bottom" secondItem="40z-LA-32S" secondAttribute="bottom" constant="10" id="oMb-DU-6o6"/>
+                            <constraint firstItem="Lp0-hh-bck" firstAttribute="leading" secondItem="pSg-mE-GnJ" secondAttribute="leading" constant="5" id="ow2-D2-ZHY"/>
+                            <constraint firstItem="40z-LA-32S" firstAttribute="top" secondItem="pSg-mE-GnJ" secondAttribute="top" constant="120" id="try-6O-Px7"/>
+                            <constraint firstAttribute="trailing" secondItem="jSb-9F-CiE" secondAttribute="trailing" constant="730" id="vYc-ln-qxG"/>
+                            <constraint firstItem="pSg-mE-GnJ" firstAttribute="trailing" secondItem="Lp0-hh-bck" secondAttribute="trailing" constant="5" id="zML-yc-jWX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pSg-mE-GnJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bW8-gG-twr"/>
+                    <connections>
+                        <outlet property="backButton" destination="jSb-9F-CiE" id="hvj-7a-TGM"/>
+                        <outlet property="team1" destination="K1e-vu-aF0" id="iKC-lr-BrF"/>
+                        <outlet property="team2" destination="fBz-Hz-Aai" id="RJc-pS-oU3"/>
+                        <outlet property="team3" destination="Nn8-qI-f6U" id="81f-jl-EnT"/>
+                        <outlet property="team4" destination="UUG-UA-HuD" id="eik-Et-1oG"/>
+                        <segue destination="iDr-ug-Gp4" kind="show" identifier="TeamNames" id="a4d-4y-IG0"/>
+                        <segue destination="bU3-lM-5jt" kind="show" identifier="GameField" id="vvB-Sl-n8h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Iho-pD-QSB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-58.258928571428569" y="892.75362318840587"/>
+        </scene>
+        <!--Select Team Names-->
+        <scene sceneID="Q2T-kF-6Jt">
+            <objects>
+                <viewController id="iDr-ug-Gp4" customClass="SelectTeamNames" customModule="gameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cGX-Hf-tN6">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Team 1 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob8-vB-WX3">
+                                <rect key="frame" x="64" y="131" width="72.5" height="30"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Team 2 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJt-f1-8bg">
+                                <rect key="frame" x="64" y="180" width="84" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="oK5-IP-KAP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFT-z4-ewR">
+                                <rect key="frame" x="279" y="178" width="557" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPramaryTriggerPressed:" destination="iDr-ug-Gp4" eventType="primaryActionTriggered" id="9xk-Fc-yuo"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Team 3 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVr-Ln-LQY">
+                                <rect key="frame" x="64" y="226" width="85" height="30"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="28"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KkF-2H-Fde">
+                                <rect key="frame" x="280" y="227" width="556" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPramaryTriggerPressed:" destination="iDr-ug-Gp4" eventType="primaryActionTriggered" id="L0e-gQ-jDT"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Team 4 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWK-IT-uIn">
+                                <rect key="frame" x="64" y="280" width="85" height="30"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f5J-vu-tYq">
+                                <rect key="frame" x="279" y="276" width="557" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPramaryTriggerPressed:" destination="iDr-ug-Gp4" eventType="primaryActionTriggered" id="tGb-xD-ivm"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uc1-J7-Ah0">
+                                <rect key="frame" x="64" y="340" width="772" height="54"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.27843137254901962" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
+                                <state key="normal" title="Starta Spelet !">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startGame:" destination="iDr-ug-Gp4" eventType="touchUpInside" id="zxR-Tz-Kz3"/>
+                                    <segue destination="bU3-lM-5jt" kind="show" identifier="segueToGame" id="ODA-Le-Ll6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDO-aY-ug9">
+                                <rect key="frame" x="64" y="20" width="117" height="40"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="18"/>
+                                <state key="normal" title="Tillbaka">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ld9-JI-A6p" kind="show" id="xaw-Ym-Zit"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skriv in Lag namn" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yID-Y2-Wjo">
+                                <rect key="frame" x="297.5" y="40" width="301.5" height="64"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="40"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-Cp-u4z">
+                                <rect key="frame" x="280" y="129" width="556" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPramaryTriggerPressed:" destination="iDr-ug-Gp4" eventType="primaryActionTriggered" id="t8q-Xy-Si0"/>
+                                    <action selector="textfirld1:" destination="iDr-ug-Gp4" eventType="editingDidEnd" id="reg-Sg-8cK"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="IJt-f1-8bg" firstAttribute="centerY" secondItem="MFT-z4-ewR" secondAttribute="centerY" id="0HF-iw-olX"/>
+                            <constraint firstItem="IJt-f1-8bg" firstAttribute="centerX" secondItem="bVr-Ln-LQY" secondAttribute="centerX" id="0dT-7x-LCb"/>
+                            <constraint firstItem="Ymp-Cp-u4z" firstAttribute="leading" secondItem="cGX-Hf-tN6" secondAttribute="leadingMargin" constant="216" id="6aV-av-7pi"/>
+                            <constraint firstItem="yID-Y2-Wjo" firstAttribute="top" secondItem="aZ6-VM-B8I" secondAttribute="top" constant="40" id="9nP-J1-v9j"/>
+                            <constraint firstItem="eDO-aY-ug9" firstAttribute="leading" secondItem="aZ6-VM-B8I" secondAttribute="leading" constant="20" id="9xb-Hz-rdi"/>
+                            <constraint firstAttribute="bottom" secondItem="uc1-J7-Ah0" secondAttribute="bottom" constant="20" id="Drh-ls-hlP"/>
+                            <constraint firstItem="ob8-vB-WX3" firstAttribute="leading" secondItem="IJt-f1-8bg" secondAttribute="leading" id="G5f-Bc-FhW"/>
+                            <constraint firstItem="f5J-vu-tYq" firstAttribute="top" secondItem="KkF-2H-Fde" secondAttribute="bottom" constant="15" id="HI7-ba-naZ"/>
+                            <constraint firstItem="MFT-z4-ewR" firstAttribute="leading" secondItem="IJt-f1-8bg" secondAttribute="trailing" constant="131" id="HhI-Sh-l7c"/>
+                            <constraint firstItem="aZ6-VM-B8I" firstAttribute="trailing" secondItem="Ymp-Cp-u4z" secondAttribute="trailing" constant="16" id="JM3-dP-JKn"/>
+                            <constraint firstItem="eDO-aY-ug9" firstAttribute="top" secondItem="aZ6-VM-B8I" secondAttribute="top" constant="20" id="JXq-2Q-qvC"/>
+                            <constraint firstItem="MFT-z4-ewR" firstAttribute="trailing" secondItem="KkF-2H-Fde" secondAttribute="trailing" id="Kx6-XH-rfu"/>
+                            <constraint firstItem="uc1-J7-Ah0" firstAttribute="leading" secondItem="aZ6-VM-B8I" secondAttribute="leading" constant="20" id="Kyt-re-iDr"/>
+                            <constraint firstItem="BWK-IT-uIn" firstAttribute="centerY" secondItem="f5J-vu-tYq" secondAttribute="centerY" id="QDx-c4-YCa"/>
+                            <constraint firstItem="KkF-2H-Fde" firstAttribute="top" secondItem="MFT-z4-ewR" secondAttribute="bottom" constant="15" id="RZn-lS-LeO"/>
+                            <constraint firstItem="aZ6-VM-B8I" firstAttribute="trailing" secondItem="uc1-J7-Ah0" secondAttribute="trailing" constant="16" id="UPw-dc-mjv"/>
+                            <constraint firstItem="ob8-vB-WX3" firstAttribute="leading" secondItem="aZ6-VM-B8I" secondAttribute="leading" constant="20" id="W0i-aA-Fso"/>
+                            <constraint firstItem="bVr-Ln-LQY" firstAttribute="centerY" secondItem="KkF-2H-Fde" secondAttribute="centerY" id="acp-QZ-dhe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eDO-aY-ug9" secondAttribute="trailing" constant="651" id="bVF-8m-eA6"/>
+                            <constraint firstItem="IJt-f1-8bg" firstAttribute="trailing" secondItem="BWK-IT-uIn" secondAttribute="trailing" id="bga-JS-JVj"/>
+                            <constraint firstItem="ob8-vB-WX3" firstAttribute="top" secondItem="eDO-aY-ug9" secondAttribute="bottom" constant="71" id="elj-0y-71h"/>
+                            <constraint firstItem="uc1-J7-Ah0" firstAttribute="top" secondItem="f5J-vu-tYq" secondAttribute="bottom" constant="30" id="fHv-hx-IaH"/>
+                            <constraint firstItem="Ymp-Cp-u4z" firstAttribute="trailing" secondItem="MFT-z4-ewR" secondAttribute="trailing" id="iuI-IO-1jf"/>
+                            <constraint firstItem="Ymp-Cp-u4z" firstAttribute="leading" secondItem="KkF-2H-Fde" secondAttribute="leading" id="kiU-e0-2WT"/>
+                            <constraint firstItem="ob8-vB-WX3" firstAttribute="centerY" secondItem="Ymp-Cp-u4z" secondAttribute="centerY" id="kuv-vA-dqD"/>
+                            <constraint firstItem="KkF-2H-Fde" firstAttribute="trailing" secondItem="f5J-vu-tYq" secondAttribute="trailing" id="lrc-fT-T3J"/>
+                            <constraint firstItem="yID-Y2-Wjo" firstAttribute="centerX" secondItem="cGX-Hf-tN6" secondAttribute="centerX" id="n8V-II-nRw"/>
+                            <constraint firstItem="MFT-z4-ewR" firstAttribute="top" secondItem="Ymp-Cp-u4z" secondAttribute="bottom" constant="15" id="nbB-Za-M86"/>
+                            <constraint firstItem="IJt-f1-8bg" firstAttribute="centerX" secondItem="BWK-IT-uIn" secondAttribute="centerX" id="qft-aZ-LQs"/>
+                            <constraint firstItem="IJt-f1-8bg" firstAttribute="leading" secondItem="bVr-Ln-LQY" secondAttribute="leading" id="tfB-3h-zVR"/>
+                            <constraint firstItem="MFT-z4-ewR" firstAttribute="leading" secondItem="f5J-vu-tYq" secondAttribute="leading" id="xpb-oP-BBE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aZ6-VM-B8I"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="rir-1e-EE3" appends="YES" id="tkt-8f-kH5"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="g6i-5G-9gI"/>
+                    <connections>
+                        <outlet property="backButton" destination="eDO-aY-ug9" id="8Yr-RA-aCk"/>
+                        <outlet property="startButton" destination="uc1-J7-Ah0" id="sKP-ho-SB8"/>
+                        <outlet property="teamLabel1" destination="ob8-vB-WX3" id="paN-qJ-3dp"/>
+                        <outlet property="teamLabel2" destination="IJt-f1-8bg" id="Yqf-U7-Zm9"/>
+                        <outlet property="teamLabel3" destination="bVr-Ln-LQY" id="KMy-BJ-xg8"/>
+                        <outlet property="teamLabel4" destination="BWK-IT-uIn" id="ATL-A5-vhA"/>
+                        <outlet property="textFieldTeam1" destination="Ymp-Cp-u4z" id="nZv-ha-wBX"/>
+                        <outlet property="textFieldTeam2" destination="MFT-z4-ewR" id="Rkj-YD-Xfd"/>
+                        <outlet property="textFieldTeam3" destination="KkF-2H-Fde" id="8BU-94-KCf"/>
+                        <outlet property="textFieldTeam4" destination="f5J-vu-tYq" id="duh-wc-hly"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ee9-hW-ztf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rir-1e-EE3">
+                    <connections>
+                        <action selector="dissmisKeyBoard:" destination="iDr-ug-Gp4" id="vLd-7L-G77"/>
+                        <outlet property="delegate" destination="cGX-Hf-tN6" id="e2P-DW-pAT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-57.589285714285708" y="1730.4347826086957"/>
+        </scene>
+        <!--Game Field View Controller-->
+        <scene sceneID="Rvn-Wo-jta">
+            <objects>
+                <viewController id="bU3-lM-5jt" customClass="gameFieldViewController" customModule="gameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6kw-wn-edl">
+                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="RVd-eO-I3e">
+                                <rect key="frame" x="369" y="5" width="261" height="388"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="contentStretch" x="0.050000000000000003" y="0.0" width="1" height="1"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="28" height="-1"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hub-Yb-6SA">
+                                <rect key="frame" x="37" y="-30" width="324" height="125"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="separatorColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="-4" indentationWidth="10" reuseIdentifier="idCell" id="0FO-mw-rO6">
+                                        <rect key="frame" x="0.0" y="55.5" width="324" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0FO-mw-rO6" id="Lib-Xo-CfY">
+                                            <rect key="frame" x="7" y="0.0" width="317" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bU3-lM-5jt" id="Dm8-uu-g1l"/>
+                                    <outlet property="delegate" destination="bU3-lM-5jt" id="0nU-lH-sKC"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="24" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xwB-mq-jTW">
+                                <rect key="frame" x="393" y="25" width="212" height="348"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6cd-xf-ljE">
+                                <rect key="frame" x="635" y="5" width="224" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.34901960784313724" green="0.80784313725490198" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                <state key="normal" title="Lås ditt svar!">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkAnswerButton:" destination="bU3-lM-5jt" eventType="touchUpInside" id="mAV-nN-yep"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ba-rD-Tgx">
+                                <rect key="frame" x="635" y="217" width="224" height="176"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hog-XI-3Pb">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="47.5"/>
+                                        <color key="backgroundColor" red="1" green="0.65622745936516513" blue="0.0016035930779241259" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
+                                        <state key="normal" title="Poäng">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showTeamsCardCount:" destination="bU3-lM-5jt" eventType="touchUpInside" id="67c-yH-vXP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fW3-Cz-m5u">
+                                        <rect key="frame" x="0.0" y="64.5" width="224" height="47"/>
+                                        <color key="backgroundColor" red="0.56502068479419321" green="0.26282429492784054" blue="0.71154516535181345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
+                                        <state key="normal" title="Instruktioner">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="instructionButton:" destination="bU3-lM-5jt" eventType="touchUpInside" id="ire-Aq-M7p"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="15w-3z-XfV">
+                                        <rect key="frame" x="0.0" y="128.5" width="224" height="47.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BEa-Af-829">
+                                <rect key="frame" x="638" y="99" width="221" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="44" id="gTi-n0-rzW">
+                                        <rect key="frame" x="0.0" y="28" width="221" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gTi-n0-rzW" id="ZMt-cC-eOi">
+                                            <rect key="frame" x="0.0" y="0.0" width="214" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TUF-7b-RmQ">
+                                <rect key="frame" x="635" y="119" width="224" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91547816989999997" green="0.28432723879999999" blue="0.2490991354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
+                                <state key="normal" title="Avsluta spelet">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="exitGame:" destination="bU3-lM-5jt" eventType="touchUpInside" id="gif-AO-lL0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bigQuestionLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOJ-tc-xQ0">
+                                <rect key="frame" x="47" y="20" width="802" height="48"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="guJ-F5-4np" appends="YES" id="ht9-G7-veA"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qX-Ob-N1o">
+                                <rect key="frame" x="64" y="20" width="785" height="48"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="UpW-l7-JYt" appends="YES" id="LMs-tF-9Nf"/>
+                                    <outletCollection property="gestureRecognizers" destination="uU4-UI-hXV" appends="YES" id="hPU-Uv-X7i"/>
+                                </connections>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="4qX-Ob-N1o" firstAttribute="top" secondItem="6kw-wn-edl" secondAttribute="top" constant="20" id="1L4-tU-tFQ"/>
+                            <constraint firstAttribute="bottom" secondItem="Hub-Yb-6SA" secondAttribute="bottom" constant="5" id="5Mj-36-YCD"/>
+                            <constraint firstItem="Hub-Yb-6SA" firstAttribute="leading" secondItem="6kw-wn-edl" secondAttribute="leading" constant="37" id="5RG-XD-b12"/>
+                            <constraint firstAttribute="trailing" secondItem="4qX-Ob-N1o" secondAttribute="trailing" constant="47" id="Avd-Cv-GnS"/>
+                            <constraint firstItem="aOJ-tc-xQ0" firstAttribute="leading" secondItem="6kw-wn-edl" secondAttribute="leading" constant="47" id="FUc-zn-U2s"/>
+                            <constraint firstAttribute="trailing" secondItem="Hub-Yb-6SA" secondAttribute="trailing" constant="535" id="MFh-BQ-6x4"/>
+                            <constraint firstItem="RVd-eO-I3e" firstAttribute="leading" secondItem="6kw-wn-edl" secondAttribute="leadingMargin" constant="305" id="MOh-07-AH8"/>
+                            <constraint firstItem="Hub-Yb-6SA" firstAttribute="top" secondItem="6kw-wn-edl" secondAttribute="top" constant="-30" id="MSN-k8-WHS"/>
+                            <constraint firstAttribute="bottom" secondItem="aOJ-tc-xQ0" secondAttribute="bottom" constant="32" id="PJF-f5-BfM"/>
+                            <constraint firstAttribute="trailing" secondItem="aOJ-tc-xQ0" secondAttribute="trailing" constant="47" id="R3Y-Tm-J8s"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ba-rD-Tgx" secondAttribute="trailing" constant="37" id="TcD-EP-k8b"/>
+                            <constraint firstItem="7Ba-rD-Tgx" firstAttribute="top" secondItem="TUF-7b-RmQ" secondAttribute="bottom" constant="51" id="Tld-D5-jqo"/>
+                            <constraint firstItem="7Ba-rD-Tgx" firstAttribute="top" secondItem="DaR-b9-T0o" secondAttribute="top" constant="217" id="Xa3-q4-aeS"/>
+                            <constraint firstAttribute="bottom" secondItem="4qX-Ob-N1o" secondAttribute="bottom" constant="32" id="cmQ-RN-QbB"/>
+                            <constraint firstAttribute="bottom" secondItem="7Ba-rD-Tgx" secondAttribute="bottom" constant="21" id="fNZ-St-fi6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xwB-mq-jTW" secondAttribute="trailing" constant="227" id="gga-jB-ygu"/>
+                            <constraint firstItem="xwB-mq-jTW" firstAttribute="leading" secondItem="6kw-wn-edl" secondAttribute="leadingMargin" constant="329" id="kHt-mB-eoX"/>
+                            <constraint firstItem="7Ba-rD-Tgx" firstAttribute="leading" secondItem="RVd-eO-I3e" secondAttribute="trailing" constant="5" id="o23-Nb-Hpa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RVd-eO-I3e" secondAttribute="trailing" constant="202" id="opw-Oy-HLL"/>
+                            <constraint firstItem="4qX-Ob-N1o" firstAttribute="leading" secondItem="6kw-wn-edl" secondAttribute="leading" constant="64" id="pRS-FC-862"/>
+                            <constraint firstItem="aOJ-tc-xQ0" firstAttribute="top" secondItem="6kw-wn-edl" secondAttribute="top" constant="20" id="xfZ-qc-EQf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DaR-b9-T0o"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XAX-hy-3dG"/>
+                    <connections>
+                        <outlet property="answerButton" destination="6cd-xf-ljE" id="BTc-Rq-ej2"/>
+                        <outlet property="bigQuestionlable" destination="aOJ-tc-xQ0" id="WQk-hD-LWk"/>
+                        <outlet property="exitGameButton" destination="TUF-7b-RmQ" id="jDs-i6-bhu"/>
+                        <outlet property="instructionLabel" destination="4qX-Ob-N1o" id="PPc-tr-Clw"/>
+                        <outlet property="labelBehind" destination="RVd-eO-I3e" id="mkZ-uc-UoM"/>
+                        <outlet property="mainMenu" destination="fW3-Cz-m5u" id="N6x-bC-6RE"/>
+                        <outlet property="questionCardLabel" destination="xwB-mq-jTW" id="ARm-dF-ys7"/>
+                        <outlet property="showTeamCardLabel" destination="Hog-XI-3Pb" id="KcG-cD-sLQ"/>
+                        <outlet property="tableView" destination="Hub-Yb-6SA" id="kcd-3W-p6H"/>
+                        <outlet property="tableViewScore" destination="BEa-Af-829" id="bVk-xm-bnA"/>
+                        <outlet property="teamLabel" destination="15w-3z-XfV" id="cqc-Vh-fN5"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="restartGame" id="2qT-8H-3t6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0f7-QH-tCW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="UpW-l7-JYt">
+                    <connections>
+                        <action selector="dissmislabel:" destination="bU3-lM-5jt" id="am2-uN-sVI"/>
+                        <outlet property="delegate" destination="bU3-lM-5jt" id="MMR-c8-xA5"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="guJ-F5-4np">
+                    <connections>
+                        <action selector="dissmislabel:" destination="bU3-lM-5jt" id="TET-zw-plN"/>
+                        <outlet property="delegate" destination="bU3-lM-5jt" id="Y7Q-Kn-KUi"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="uU4-UI-hXV">
+                    <connections>
+                        <action selector="dissmissInstruction:" destination="bU3-lM-5jt" id="mAm-ZC-pfR"/>
+                        <outlet property="delegate" destination="bU3-lM-5jt" id="zTL-T3-27J"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="660.9375" y="107.24637681159422"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ODA-Le-Ll6"/>
+        <segue reference="xaw-Ym-Zit"/>
+        <segue reference="2qT-8H-3t6"/>
+    </inferredMetricsTieBreakers>
+</document>
