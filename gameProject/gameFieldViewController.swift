@@ -10,17 +10,16 @@ import UIKit
 
 class gameFieldViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    @IBOutlet weak var labelBehind: UILabel!
+    @IBOutlet weak var questionCardLabel: UITextView!
+    @IBOutlet weak var bigQuestionlable: UITextView!
+    @IBOutlet weak var instructionLabel: UITextView!
     @IBOutlet weak var answerButton: UIButton!
-    @IBOutlet weak var questionCardLabel: UILabel!
     @IBOutlet weak var teamLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mainMenu: UIButton!
-    @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var showTeamCardLabel: UIButton!
     @IBOutlet weak var tableViewScore: UITableView!
     @IBOutlet weak var exitGameButton: UIButton!
-    @IBOutlet weak var bigQuestionlable: UILabel!
     
     var currentTeamIndex  = 0
     var teams = [Team]()
@@ -34,10 +33,6 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     var myIndex = 0
     var restartGame = "restartGame"
     
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         displayLooks()
@@ -47,19 +42,21 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         self.setupLabelTap2()
         let names = [recivingName1, recivingName2, recivingName3, recivingName4]
         for i in 0..<recivingNumber! {
-            teams.append(Team(name: names[i]!))
+            teams.append(Team(name: names[i]!, nrOfTeams: recivingNumber!))
         }
         currentTeam = teams[currentTeamIndex]
         for team in teams {
             team.nextQuestion()
             team.lock()
             team.nextQuestion()
+             print("!!!!\(team.questions.count)")
         }
         tableView.setEditing(true, animated: true)
         tableViewScore.dataSource = self
-        //  tableViewScore.delegate = self
         tableView.allowsSelectionDuringEditing = true
         setNewTeam()
+    
+        
     }
     
     func setupLabelTap() {
@@ -96,8 +93,10 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func showTeamsCardCount(_ sender: Any) {
         if tableViewScore.alpha == CGFloat(0){
+            
             showTeamCardLabel.setTitle("Vissa Poäng", for: .normal)
             tableViewScore.alpha = 1
+            
             exitGameButton.alpha = 0
             
         }else{
@@ -109,18 +108,22 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func setNewTeam() {
-        teamLabel.text = currentTeam.name
+
+        teamLabel.text = "Din tur! " + currentTeam.name
         questionCardLabel.text = currentTeam.asktQuestions[0].quest
         let text = questionCardLabel.text
         bigQuestionlable.text = text
-        
-        
+        print("!!!!\(currentTeam.asktQuestions[0].answer)")
     }
     
     func newQuestion() {
+        
         questionCardLabel.text = currentTeam.nextQuestion().quest
         let text = questionCardLabel.text
         bigQuestionlable.text = text
+        
+        
+       
     }
     
     func quitGameAlert(title: String, message: String){
@@ -198,11 +201,27 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     func player1Alert(){
         if recivingNumber == 1{
             currentTeam.nextQuestion()
-            
         }
         tableView.reloadData()
         setNewTeam()
         
+    }
+    
+    func outOfQuestionsAlert(title: String, message: String){
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Avsluta spel", style: .default, handler: { (action) in
+            self.exitGame()
+        }))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func outOfQuestions(){
+        if currentTeam.outOfQuestionsBool == true{
+            outOfQuestionsAlert(title: "Slut på kort", message: "Tyvärr lyckades du inte få 8 poäng innan korten tog slut")
+        }
     }
     
     func gameWon(title: String, message: String){
@@ -213,7 +232,7 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         
         alert.addAction(UIAlertAction(title: "Starta Nytt spel", style: .default, handler: { (action) in
             
-            self.newGame()
+            self.exitGame()
             
         }))
         
@@ -221,26 +240,21 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         )
     }
     
-    func newGame(){
-        performSegue(withIdentifier: restartGame, sender: self)
-        
-    }
-    
     @IBAction func checkAnswerButton(_ sender: UIButton){
         checkAnswer()
+        
     }
     
     func checkAnswer(){
-        
         
         if currentTeam.asktQuestions.count == 8 && currentTeam.checkAnswer() == true{
             gameWon(title: "Grattis", message: "")
         }
         else if currentTeam.checkAnswer() == true{
-            newQuestionAlert(title: "CORRECT!", message:"året var") /*"ÅRET VAR \(currentTeam.asktQuestions[0].answer)!                                                          Vill du låsa ditt kort eller ta en ny fråga")*/
+            newQuestionAlert(title: "CORRECT!", message:"året var")
+            
         }
         else{
-            
             
             if recivingNumber == 1{
                 wrongAnswerAlert1Player(title: "Fel", message: "asfösdlödsö")
@@ -255,16 +269,15 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         if currentTeam.asktQuestions.count < 8{
             
             if currentTeam.checkAnswer() && currentTeam.asktQuestions.count != 8{
+                
                 newQuestion()
                 tableView.reloadData()
-                print(currentTeam.asktQuestions[0].answer)
+                print("!!!!\(currentTeam.asktQuestions[0].answer)")
+//                print(currentTeam.asktQuestions[0].answer)
+//                print("emil ifNewQuestion")
+//                outOfQuestions()
             }
         }
-        
-        //        else if currentTeam.checkAnswer() == true && currentTeam.asktQuestions.count == 8{
-        //            gameWon(title: "Grattis", message: "Du vann spelat")
-        //
-        //        }
     }
     
     func nextTeamAlertButton(){
@@ -277,6 +290,8 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         
         if currentTeam.checkAnswer() == true{
             currentTeam.nextQuestion()
+            
+             
         }
         currentTeam = teams[currentTeamIndex]
         tableView.reloadData()
@@ -295,7 +310,6 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         
         if currentTeam.checkAnswer() == true{
             currentTeam.nextQuestion()
-            // print(currentTeam.asktQuestions[0].answer)
         }
         currentTeam = teams[currentTeamIndex]
         tableView.reloadData()
@@ -323,35 +337,35 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
             let question = currentTeam.asktQuestions[indexPath.row]
             
             cell.backgroundColor = UIColor(red: 0.290, green: 0.710, blue: 1.000, alpha: 1.0)
-            cell.layer.cornerRadius = 20
+            cell.layer.cornerRadius = 13
             cell.layer.borderWidth = 2
             cell.layer.borderColor = UIColor.systemYellow.cgColor
-            //cell.translatesAutoresizingMaskIntoConstraints = false
-            
             if question.locked == true{
                 cell.backgroundColor = UIColor(red: 0.350, green: 0.810, blue: 0.190, alpha: 1.0)
             }
             
             if question.active == true {
-                cell.textLabel?.text = "Vilket år var det!?"
+                cell.textLabel?.text = "Vilket årtal?!"
                 cell.backgroundColor = UIColor(red: 0.930, green: 0.280, blue: 0.200, alpha: 1.0)
-            } else {
+            }
+            
+            else {
+                
                 cell.textLabel?.text = currentTeam.asktQuestions[indexPath.row].answer
-                
-                
             }
             
             return cell
         } else {
             let cell = tableViewScore.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-            
-            //                teams[0].name
-            //                teams[0].asktQuestions.count
             let String1 = teams[indexPath.row].name
             let String2 = teams[indexPath.row].asktQuestions.count - 1
             let String3  = String1 + " har " + String(String2) + " Poäng"
             
             cell.textLabel!.text = String3
+            cell.backgroundColor = UIColor.white
+            cell.layer.borderWidth = 1
+            cell.layer.cornerRadius = 5
+            cell.layer.borderColor = UIColor(red: 0.930, green: 0.280, blue: 0.200, alpha: 1.0).cgColor
             return cell
         }
     }
@@ -374,15 +388,9 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
             
             
             let q =  currentTeam.asktQuestions.remove(at: sourceIndexPath.row)
-            // let q = currentTeam.asktQuestions.remove(at: sourceIndexPath.row)
-            
-            
             currentTeam.asktQuestions.insert(q, at: destinationIndexPath.row)
-            
         }
-        else{print("inne i else")
-            
-            
+        else{
         }
         tableView.reloadData()
         
@@ -400,7 +408,7 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func instructionButton(_ sender: Any) {
         if instructionLabel.alpha == CGFloat(0){
-            instructionLabel.text = "👉Den blåa ettiketen idikerar på vilket lag som ska spela omgången\n👉Den gröna kanappen vissar hur många kort/poäng motståndarlagen har på sin spelplan\n👉Du placerar det aktiva åtalet genom att hålla på det randiga fältet och placera ditt svar mellan de rätta årtalen\n👉Trycker du på det aktuella frågekortet kommer frågan upp i en ny ruta med större format för lättare läsning, För att återgå till spelets ursprungsläge trycker du på frågerkortet\n👉spelet går ut på att svara på vilket årtal som händelsen inträffat. Du placerar kortet som hänvisar till en händelse mellan dem tidigare vunna korten, det årtalet som inträffat närmst i tid placeras högst upp på tidslinjen. Blir du osäker på vart du ska placera ditt kort kan du ta hjälp av att läsa dina tidigare frågeställningar. Detta gör du genom att trycka på respektive årtal. Det lag som först uppnår 8 korrekt svarade kort har vunnit.\n👉Tips: Streama spelat till en större bildskärm förr en bättre spelupplevelse. spelet anpassas för alla åldrar så bjud in alla du känner för en trevlig spelkväll!😄"
+            instructionLabel.text = "👉Den svarta ettiketen idikerar på vilket lag som ska spela omgången\n\n👉Den orange kanappen vissar hur många kort/poäng motståndarlagen har på sin spelplan\n\n👉Den gröna knappen svarar du på när du placerat det aktiva årtalat på den plats du tror är rätt\n\n👉Du placerar det aktiva åtalet genom att hålla på det randiga fältet och placera ditt svar mellan de rätta årtalen\n\n👉Trycker du på det aktuella frågekortet kommer frågan upp i en ny ruta med större format för lättare läsning, För att återgå till spelets ursprungsläge trycker du på frågerkortet\n\n👉spelet går ut på att svara på mellan vilka årtal som händelsen inträffat. Du placerar kortet som hänvisar till en händelse mellan dem tidigare vunna korten, det årtalet som inträffat närmst i tid placeras högst upp på tidslinjen. Blir du osäker på vart du ska placera ditt kort kan du ta hjälp av att läsa dina tidigare frågeställningar. Detta gör du genom att trycka på respektive årtal. Det lag som först uppnår 8 korrekt svarade kort har vunnit.\n\n👉Tips: Streama spelat till en större bildskärm förr en bättre spelupplevelse. spelet anpassas för alla åldrar så bjud in alla du känner för en trevlig spelkväll!😄"
             instructionLabel.alpha = 0.95
             mainMenu.setTitle("Dölj instruktioner", for: .normal)
         }
@@ -418,9 +426,6 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     func exitGame(){
         performSegue(withIdentifier: restartGame, sender: self)
     }
-    //        @IBAction func mainMenu(_ sender: Any) {
-    //         performSegue(withIdentifier: restartGame, sender: self)
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == restartGame{
@@ -428,14 +433,15 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
             ViewController
         }
     }
-    //EB4937 red: 0.92, green: 0.29, blue: 0.22
     
     func displayLooks(){
-        labelBehind.layer.borderWidth = 15
-        labelBehind.layer.borderColor = UIColor(red: 0.930, green: 0.280, blue: 0.200, alpha: 1.0).cgColor
-        labelBehind.layer.cornerRadius = 20
-        labelBehind.layer.masksToBounds = true
+        questionCardLabel.layer.borderWidth = 15
+        questionCardLabel.layer.borderColor = UIColor(red: 0.930, green: 0.280, blue: 0.200, alpha: 1.0).cgColor
+       questionCardLabel.layer.cornerRadius = 20
+        questionCardLabel.layer.masksToBounds = true
+        questionCardLabel.textContainerInset = UIEdgeInsets(top: 60, left: 20, bottom: 60, right: 20)
         
+
         showTeamCardLabel.layer.borderWidth = 3
         showTeamCardLabel.setTitle("Poäng tavla", for: .normal)
         showTeamCardLabel.layer.cornerRadius = 10
@@ -466,8 +472,8 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         exitGameButton.setTitle("Avsluta Spelet", for: .normal)
         
         bigQuestionlable.layer.masksToBounds = true
-        bigQuestionlable.layer.cornerRadius = 50
-        bigQuestionlable.layer.borderWidth = 10
+        bigQuestionlable.layer.cornerRadius = 10
+        bigQuestionlable.layer.borderWidth = 3
         bigQuestionlable.layer.borderColor = UIColor.black.cgColor
         bigQuestionlable.textAlignment = .center
         // bigQuestionlable.adjustsFontSizeToFitWidth = true
@@ -475,6 +481,12 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         // bigQuestionlable.preferredMaxLayoutWidth = 50
         
         tableView.backgroundColor = UIColor.systemYellow
+        tableViewScore.backgroundColor = UIColor.systemYellow
+        
+        instructionLabel.frame.size.width = instructionLabel.intrinsicContentSize.width + 10
+        instructionLabel.frame.size.height = instructionLabel.intrinsicContentSize.height + 10
+        instructionLabel.textAlignment = .left
+        
         
     
         

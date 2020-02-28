@@ -21,11 +21,6 @@ class numberOfTeamsViewController: UIViewController {
     var segueToGameField = "GameField"
     var segueToTeamNames = "TeamNames"
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         buttonLooks()

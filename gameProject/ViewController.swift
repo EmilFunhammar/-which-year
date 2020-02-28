@@ -52,6 +52,10 @@ class ViewController: UIViewController {
 //        settingsButton.layer.borderColor = UIColor.white.cgColor
 //        settingsButton.layer.borderWidth = 3
     }
+    
+    @IBAction func unwindToStart(segue: UIStoryboardSegue){
+        
+    }
 
 
 }

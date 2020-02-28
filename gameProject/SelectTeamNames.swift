@@ -33,74 +33,14 @@ class SelectTeamNames: UIViewController {
     var teamName3: String?
     var teamName4: String?
     
-
-    //var array = [UITextField]()
-
-
-  //  var array = [UITextField]()
-
-    //var  array = [self.textFieldTeam1, textFieldTeam2, textFieldTeam3, textFieldTeam4]
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkRecivingAnswer()
         hiddeLabels()
         ButtonLooks()
         overrideUserInterfaceStyle = .light
-       // textFieldTeam1.delegate = self as! UITextFieldDelegate
-        
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
 
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-    }
     
-//    @objc func keyboardWillShow(notification: NSNotification) {
-//    guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
-//    print("erika was here")
-//       // if keyboard size is not available for some reason, dont do anything
-//       return
-//    }
-//}
-    
-//    @objc func keyboardWillShow(_ notification: Notification) {
-//        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-//            let keyboardRectangle = keyboardFrame.cgRectValue
-//            let keyboardHeight = keyboardRectangle.height
-//        }
-//    }
-    
-    func inputTextFields(){
-      // var array = [UITextField.text]
-//        for i in 1...receivingAnswer!{
-            //current player
-            //varsin spelplan
-            //byta imellan de olika lagens spelplan
-        
-//        let team1 = textFieldTeam1
-//        let team2 = textFieldTeam2
-//        let team3 = textFieldTeam3
-//        let team4 = textFieldTeam4
-//        let array = [textFieldTeam1.text!, textFieldTeam2.text!, textFieldTeam3.text!, textFieldTeam4.text!]
-//        print(array.count)
-//        print(array)
-        
-    }
-    
-    func checkRecivingAnswer(){
-        if receivingAnswer == nil {
-            print("nil")
-        }
-        else{
-            print(receivingAnswer!)
-        }
-    }
-    
-//
-//    @IBAction func textfirld1(_ sender: UITextField) {
-//        view.frame.origin.y = -300
-//    }
     func hiddeLabels(){
         switch receivingAnswer {
         case 1: receivingAnswer = 1
@@ -128,7 +68,6 @@ class SelectTeamNames: UIViewController {
         }
     }
     @IBAction func startGame(_ sender: Any) {
-    inputTextFields()
         performSegue(withIdentifier: "segueToGame", sender: self)
     }
     
@@ -146,24 +85,18 @@ class SelectTeamNames: UIViewController {
             destinationVC.recivingNumber = receivingAnswer
         }
     }
-    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool
-//    {
-//        textField.resignFirstResponder()
-//        return true
-//    }
 
     @IBAction func textFieldPramaryTriggerPressed(_ sender: UITextField) {
         print("Pramary Trigger Presed")
-//      textFieldTeam1.endEditing(true)
-//        textFieldTeam2.endEditing(true)
-//        textFieldTeam3.endEditing(true)
-//        textFieldTeam4.endEditing(true)
+        textFieldTeam1.endEditing(true)
+        textFieldTeam2.endEditing(true)
+        textFieldTeam3.endEditing(true)
+        textFieldTeam4.endEditing(true)
+        
     }
     
     @IBAction func dissmisKeyBoard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
-
     }
     
     
@@ -177,9 +110,15 @@ class SelectTeamNames: UIViewController {
         startButton.layer.borderWidth = 3
         startButton.layer.borderColor = UIColor.black.cgColor
         
- //       textFieldTeam1.returnKeyType = .done
-//        textFieldTeam2.returnKeyType = .done
-//        textFieldTeam3.returnKeyType = .done
-//        textFieldTeam4.returnKeyType = .done
+        textFieldTeam1.returnKeyType = .done
+        textFieldTeam2.returnKeyType = .done
+        textFieldTeam3.returnKeyType = .done
+        textFieldTeam4.returnKeyType = .done
+        textFieldTeam1.placeholder = "Skriv ditt namn här"
+        textFieldTeam2.placeholder = "Skriv ditt namn här"
+        textFieldTeam3.placeholder = "Skriv ditt namn här"
+        textFieldTeam4.placeholder = "Skriv ditt namn här"
+        
+        
     }
 }
