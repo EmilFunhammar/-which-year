@@ -80,8 +80,5 @@ class numberOfTeamsViewController: UIViewController {
         backButton.layer.cornerRadius = 12
         backButton.layer.borderColor = UIColor.black.cgColor
         backButton.layer.borderWidth = 3
-        
     }
-    
-    
 }

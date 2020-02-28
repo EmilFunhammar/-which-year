@@ -273,9 +273,6 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
                 newQuestion()
                 tableView.reloadData()
                 print("!!!!\(currentTeam.asktQuestions[0].answer)")
-//                print(currentTeam.asktQuestions[0].answer)
-//                print("emil ifNewQuestion")
-//                outOfQuestions()
             }
         }
     }
@@ -437,11 +434,10 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
     func displayLooks(){
         questionCardLabel.layer.borderWidth = 15
         questionCardLabel.layer.borderColor = UIColor(red: 0.930, green: 0.280, blue: 0.200, alpha: 1.0).cgColor
-       questionCardLabel.layer.cornerRadius = 20
+        questionCardLabel.layer.cornerRadius = 20
         questionCardLabel.layer.masksToBounds = true
         questionCardLabel.textContainerInset = UIEdgeInsets(top: 60, left: 20, bottom: 60, right: 20)
         
-
         showTeamCardLabel.layer.borderWidth = 3
         showTeamCardLabel.setTitle("Poäng tavla", for: .normal)
         showTeamCardLabel.layer.cornerRadius = 10
@@ -476,9 +472,6 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         bigQuestionlable.layer.borderWidth = 3
         bigQuestionlable.layer.borderColor = UIColor.black.cgColor
         bigQuestionlable.textAlignment = .center
-        // bigQuestionlable.adjustsFontSizeToFitWidth = true
-        // bigQuestionlable.allowsDefaultTighteningForTruncation = true
-        // bigQuestionlable.preferredMaxLayoutWidth = 50
         
         tableView.backgroundColor = UIColor.systemYellow
         tableViewScore.backgroundColor = UIColor.systemYellow
@@ -486,27 +479,6 @@ class gameFieldViewController: UIViewController, UITableViewDataSource, UITableV
         instructionLabel.frame.size.width = instructionLabel.intrinsicContentSize.width + 10
         instructionLabel.frame.size.height = instructionLabel.intrinsicContentSize.height + 10
         instructionLabel.textAlignment = .left
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
 

@@ -23,5 +23,4 @@ class Question{
         previously = false
         locked = false
     }
-    
 }

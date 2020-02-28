@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     
     var recivingtext: String?
     var recivingBool: Bool?
-    //var gameFeild = "gameField"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +28,7 @@ class ViewController: UIViewController {
         playButton.setTitle(recivingtext, for: .normal)
     }
         
-//    @IBAction func gameField(_ sender: Any) {
-//        performSegue(withIdentifier: gameFeild, sender: self)
-//    }
-    
     func buttonLooks() {
-//        if recivingBool == false{
-//            playButton.alpha = 1
-//        }else{
-//            playButton.alpha = 0
-//        }
         playButton.alpha = 0
         playButton.layer.cornerRadius = 20
         playButton.layer.borderColor = UIColor.black.cgColor
@@ -47,16 +37,9 @@ class ViewController: UIViewController {
         teamButton.layer.cornerRadius = 20
         teamButton.layer.borderColor = UIColor.black.cgColor
         teamButton.layer.borderWidth = 3
-        
-//        settingsButton.layer.cornerRadius = 20
-//        settingsButton.layer.borderColor = UIColor.white.cgColor
-//        settingsButton.layer.borderWidth = 3
     }
     
     @IBAction func unwindToStart(segue: UIStoryboardSegue){
-        
     }
-
-
 }
 

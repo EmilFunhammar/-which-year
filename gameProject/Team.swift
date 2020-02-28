@@ -20,10 +20,6 @@ class Team {
     var nrOfTeams : Int?
     var outOfQuestionsBool : Bool
     
-    
-    
-    
-    
     init(name: String, nrOfTeams: Int) {
         self.name = name
         outOfQuestionsBool = false
@@ -33,26 +29,6 @@ class Team {
         
         self.choseQuestions(nrOfTeams )
     }
-    
-    //    func clear() {
-    //        Team.allQuestions?.removeAll()
-    //        Team.allQuestions = nil
-    //
-    //    }
-    
-    //    func newQuestionsToTeams(nrOfTeams: Int){
-    //        if Team.isQuestionEmpty == false{
-    //            print("emil: newQuestionToTeams")
-    //            clear()
-    //            createQuestions()
-    //            currentQuestion = 0
-    //            Team.isQuestionEmpty = true
-    //        }else{
-    //
-    //        }
-    //        currentQuestion = 0
-    //        choseQuestions(nrOfTeams)
-    //    }
     
     func createQuestions() {
         
@@ -221,7 +197,6 @@ class Team {
                 guard let nextAnswer = Int(asktQuestions[i+1].answer) else {return false}
                 
                 if answer < nextAnswer {
-                    //print("False")
                     return false
                 }
             }

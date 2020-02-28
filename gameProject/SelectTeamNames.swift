@@ -39,7 +39,6 @@ class SelectTeamNames: UIViewController {
         ButtonLooks()
         overrideUserInterfaceStyle = .light
     }
-
     
     func hiddeLabels(){
         switch receivingAnswer {
